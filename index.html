@@ -5,13 +5,165 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="stylesheet" src="style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     
     <script src="https://unpkg.com/vue@3"></script>
     <div id="app">
+        
+        <main>
+            
+            <header>
+
+            </header>
+            
+            <div class="background">
+                <div class="window-display">
+                
+                    <div class="window-display-left">
+                        <div class="myprofile">
+                            
+                            <div class="myprofile-left">
+                                <img src="./img/avatar_io.jpg" alt="myavatar">
+                                <span>
+                                    Sofia
+                                </span>
+    
+                            </div>
+    
+                            <div class="myprofile-right">
+                                <i class="fa-solid fa-circle-notch"></i>
+                                <i class="fa-solid fa-message"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+    
+    
+    
+                            </div>
+    
+                        </div>
+                        <div class="notifications">
+                            <div>
+                                <i class="fa-solid fa-bell-slash"></i>
+                            </div>
+                            <div>
+                                <div>
+                                    Ricevi notifiche di nuovi messaggi
+                                </div>
+                                <div class="secondiv">
+                                    Attiva notifiche desktop
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="typespace-left">
+                            <div>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <input type="text" placeholder="Crea o inizia una nuova chat">
+                        </div>
+                        <div class="contacts">
+                            <div class="names" v-for="(element , index) in contacts">
+                                <img src="{{element.avatar}}" alt="">
+                                <div>
+                                    <span class="name">
+                                        {{element.name}}
+                                    </span>
+                                    <br>
+                                    <span class="secondspan">
+                                        Ultimo messaggio inviato
+                                    </span>
+                                </div>
+                                <span class="oclock">
+                                    12:00
+                                </span>
+    
+                            </div>
+    
+                        </div>
+    
+                    </div>
+                    
+                    <div class="window-display-right">
+                        <div class="current-chat-header">
+                            <div class="myprofile">
+                            
+                                <div class="myprofile-left">
+                                    <img src="./img/avatar_1.jpg" alt="myavatar">
+                                    <div>
+                                        <span class="name">
+                                            Michele
+                                        </span>
+                                        <br>
+                                        <span class="secondspan">
+                                            Ultimo accesso oggi alle 12:00
+                                        </span>
+                                    </div>
+        
+                                </div>
+        
+                                <div class="myprofile-right">
+                                    
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <i class="fa-solid fa-paperclip"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+    
+                                </div>
+        
+                            </div>
+    
+    
+                        </div>
+                        <div class="current-chat-content">
+                           
+                            <div class="my-messages">
+                                <div class="sended-message">
+                                    <span>
+                                        Tutto fatto!
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="my-interlocutor-messages">
+                                <div class="received-message">
+                                    <span>
+                                        Hai portato a spasso il cane?
+                                    </span>
+                                </div>    
+                                    <br>
+                                <div class="received-message">  
+                                    <span>
+                                        Ricordati di stendere i panni
+                                    </span>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="typespace-right">
+                            
+                            <div class="typespace-right-one">
+                                <i class="fa-regular fa-face-smile"></i>
+                            </div>
+                            
+                            <div class="typespace-right-two">
+                                <input type="text" placeholder="   Scrivi un messaggio" >
+                            </div>
+                            
+                            <div class="typespace-right-tree">
+                                <i class="fa-solid fa-microphone"></i>
+                            </div>
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+    
+
+            </div>
+        </main>
 
     </div>
     <script src="./script.js"></script>

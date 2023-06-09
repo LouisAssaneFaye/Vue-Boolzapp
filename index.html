@@ -63,9 +63,9 @@
                             </div>
                             <input type="text" placeholder="Crea o inizia una nuova chat">
                         </div>
-                        <div class="contacts">
-                            <div class="names" v-for="(element , index) in contacts">
-                                <img src="{{element.avatar}}" alt="">
+                        <div class="contacts">                           
+                            <div class="names" v-for="(element , index) in contacts" @click = "selectContact(index)" :class="activeIndex===index ? 'active' : '' ">
+                                <img :src="element.avatar" alt="">
                                 <div>
                                     <span class="name">
                                         {{element.name}}
@@ -115,32 +115,18 @@
     
     
                         </div>
-                        <div class="current-chat-content">
-                           
-                            <div class="my-messages">
-                                <div class="sended-message">
-                                    <span>
-                                        Tutto fatto!
-                                    </span>
-                                </div>
+                        
+                        <div class="current-chat-content" v-for="(element, index) in contacts" :class="activeIndex===index ? 'currentChat' : '' ">
 
-                            </div>
-
-                            <div class="my-interlocutor-messages">
-                                <div class="received-message">
-                                    <span>
-                                        Hai portato a spasso il cane?
-                                    </span>
-                                </div>    
-                                    <br>
-                                <div class="received-message">  
-                                    <span>
-                                        Ricordati di stendere i panni
-                                    </span>
-                                </div>
-                            </div>
-    
+                            <div v-for="(element , index) in contacts[index].messages" :class=" element.status==='sent' ? 'sended-message' : 'received-message'">
+                                <span>
+                                    {{element.message}}
+                                </span>
+                            </div>    
+                            
                         </div>
+
+
                         <div class="typespace-right">
                             
                             <div class="typespace-right-one">

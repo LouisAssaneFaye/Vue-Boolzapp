@@ -165,8 +165,9 @@ div.current-chat-header{
 div.current-chat-content{
     height: calc(100% - 2 * 60px);
     background-image: url('./img/mine.jpg');
-    display: flex;
+    display: none;
     overflow-y: auto;
+    padding-top: 1rem;
 }
 
 div.typespace-right{
@@ -209,26 +210,16 @@ div.typespace-right-tree{
     height: 100%;
 }
 
-div.my-interlocutor-messages{
-    height: 100%;
-    width: 50%;
-    padding-top: 1rem;
-}
-
-div.my-messages{
-    height: 100%;
-    width: 50%;
-    padding-top: 1rem;
-}
-
 div.received-message{
-    margin: 0 auto;
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     padding-left: 0.5rem;
     background-color: white;
-    margin-bottom: -0.9rem;
-    width: 60%;
+    margin-bottom: 0.5rem;
+    width: 40%;
+    border-radius: 10px;
+    height: 3rem;
+    margin-left: 1rem;
 
 }
 
@@ -238,7 +229,21 @@ div.sended-message{
     padding-bottom: 0.8rem;
     padding-left: 0.5rem;
     background-color: rgb(190, 216, 152);
-    width: 60%;
-    margin-bottom: -0.9rem;
+    width: 40%;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    height: 3rem;
+    margin-right: 3rem;
 }
 
+div.active{
+    background-color: grey;
+}
+
+div.currentChat{
+    display: block;
+}
+
+div.window-display-right{
+    overflow-y: auto;
+}

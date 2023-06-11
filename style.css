@@ -171,11 +171,12 @@ div.current-chat-content{
 }
 
 div.typespace-right{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     height: 60px;
-    background-color: rgba(255, 245, 227, 0.897) ;
+    background-color: rgba(255, 245, 227, 1) ;
+    overflow-y: auto;
 }
 
 div.typespace-right-one{
@@ -208,6 +209,53 @@ div.typespace-right-tree{
     align-items: center;
     justify-content: center;
     height: 100%;
+}
+
+div.container{
+    position: relative;
+}
+
+div.allert{
+    position: absolute;
+    background-color: white;
+    height: 100px;
+    width: 100px;
+    left: -990%;
+    top: 74%;
+    z-index: 1;
+    border: 1px solid black;
+    display: none;
+}
+
+span.close-allert{
+    position: absolute;
+    font-size: 0.6rem;
+    left: 87%;
+    top: 5%;
+    
+}
+
+div.allert.notnone{
+    display: block;
+}
+
+
+div.message-info{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    line-height: 16px;
+}
+
+div.delete-message{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: red;
 }
 
 div.received-message{
@@ -244,6 +292,43 @@ div.currentChat{
     display: block;
 }
 
+div.currentChatTwo{
+    display: flex;
+}
+
 div.window-display-right{
     overflow-y: auto;
+}
+
+span.date{
+    margin-bottom: 0%;
+    margin-right: 0;
+    font-size: 9px;
+}
+
+div.deleted{
+    display: none;
+}
+
+span.menu{
+    position: absolute;
+    top: 3%;
+    left: 95%;
+}
+
+span.menu>i.fa-solid{
+    font-size: 1.2rem;
+}
+
+span.menu>i.fa-x{
+    font-size: 0.85rem;
+    color: red;
+}
+
+i.notnone{
+    display: inline-block;
+}
+
+i.none{
+    display: none;
 }

@@ -168,7 +168,22 @@ createApp({
                 }
             ], 
             
+            
             activeIndex : 0,
+            activeMessage : '',
+            activeDeletedMessage: '',
+            
+            myNewMessage : {
+                
+                    date: '',
+                    message: '',
+                    status: 'sent'
+                
+            },  
+
+            dateArray : [
+
+            ]
             
                    
             
@@ -179,6 +194,46 @@ createApp({
         selectContact(Index){
             this.activeIndex= Index;
         },
+
+        selectMessage(Index){
+            if(this.activeMessage=== Index){
+                this.activeMessage= '';
+                console.log(this.activeMessage);
+                
+            } else{
+                this.activeMessage= Index;
+                console.log(this.activeMessage);
+                
+            }
+            this.activeDeletedMessage='';
+        },
+
+        addMyNewMessage(Index){
+            if(this.myNewMessage.message === ''){
+
+            } else {
+                this.contacts[Index].messages.push(this.myNewMessage);
+                this.myNewMessage = {
+                date: '',
+                message: '',
+                status: 'sent'
+
+            }
+
+            }
+            
+
+        },
+
+        deleteMessage(Index){
+            this.activeDeletedMessage=Index;
+            console.log(this.activeDeletedMessage)
+
+        }
+
     }
 
 }).mount('#app')
+
+
+

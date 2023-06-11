@@ -118,23 +118,37 @@
                         
                         <div class="current-chat-content" v-for="(element, index) in contacts" :class="activeIndex===index ? 'currentChat' : '' ">
 
-                            <div v-for="(element , index) in contacts[index].messages" :class=" element.status==='sent' ? 'sended-message' : 'received-message'">
+                            <div class="container" v-for="(element , index) in contacts[index].messages" :class=" element.status==='sent' ? 'sended-message' : 'received-message'" :class=" activeDeletedMessage==='index' ? 'deleted' : '' ">
                                 <span>
                                     {{element.message}}
                                 </span>
-                            </div>    
+                                <span class="menu">
+                                    <i @click="selectMessage(index)" class="fa-sharp fa-solid fa-caret-down" :class="activeMessage==='' ? 'notnone' : 'none' " ></i>
+                                    <i @click="selectMessage(index)" class="fa-solid fa-x" :class="activeMessage===index ? 'notnone' : 'none' "></i>
+                                    <div class="allert" :class="activeMessage===index ? 'notnone' : '' ">
+                                        <div class="message-info">
+                                            Info message: <br>
+                                            {{element.date}}
+                                        </div>
+                                        <div class="delete-message" @click=" deleteMessage(index)">
+                                            Delete message
+                                        </div>
+                                    </div>  
+                                </span>
+                                
+                            </div> 
                             
                         </div>
 
 
-                        <div class="typespace-right">
+                        <div class="typespace-right" v-for="(element, index) in contacts" :class="activeIndex===index ? 'currentChatTwo' : '' ">
                             
                             <div class="typespace-right-one">
                                 <i class="fa-regular fa-face-smile"></i>
                             </div>
                             
                             <div class="typespace-right-two">
-                                <input type="text" placeholder="   Scrivi un messaggio" >
+                                <input type="text" placeholder="   Scrivi un messaggio" v-model="myNewMessage.message" @keyup.enter="addMyNewMessage(index)" @keyup.enter = " myInterlocutorAnswer('ok')">
                             </div>
                             
                             <div class="typespace-right-tree">

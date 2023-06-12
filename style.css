@@ -82,11 +82,13 @@ div.notifications>div:last-child{
 div.typespace-left{
     height: 40px;
     display: flex;
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     align-items: center;
     background-color: whitesmoke;
 }
+
+div.contacts div.typespace-left:first-child{}
 
 div.typespace-left>*{
     height: 100%;
@@ -147,7 +149,7 @@ div.typespace-left>div:first-child{
 }
 
 div.contacts{
-    height: calc( 100% - 160px);
+    height: calc( 100% - 180px);
     overflow-y: auto;
 }
 
@@ -331,4 +333,12 @@ i.notnone{
 
 i.none{
     display: none;
+}
+
+div.names.deleted{
+    display: none;
+}
+
+div.names.notDeleted{
+    display: flex;
 }

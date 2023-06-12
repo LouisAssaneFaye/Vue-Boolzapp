@@ -57,27 +57,33 @@
                             </div>
     
                         </div>
-                        <div class="typespace-left">
-                            <div>
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </div>
-                            <input type="text" placeholder="Crea o inizia una nuova chat">
-                        </div>
-                        <div class="contacts">                           
-                            <div class="names" v-for="(element , index) in contacts" @click = "selectContact(index)" :class="activeIndex===index ? 'active' : '' ">
-                                <img :src="element.avatar" alt="">
-                                <div>
-                                    <span class="name">
-                                        {{element.name}}
-                                    </span>
-                                    <br>
-                                    <span class="secondspan">
-                                        Ultimo messaggio inviato
-                                    </span>
+                        
+                        <div class="contacts">
+
+                            <div v-for="(element , index) in contacts" @click = "selectContact(index)" :class="activeIndex===index ? 'active' : '' ">
+                               
+                                <div class="typespace-left" :class="element.search===false ? 'deleted' : '' ">
+                                    <div>
+                                      <i class="fa-solid fa-magnifying-glass"></i>
+                                    </div>
+                                    <input type="text" placeholder="Crea o inizia una nuova chat" v-model="searchBarContent" @keyup="searchContact(index)">
                                 </div>
-                                <span class="oclock">
-                                    12:00
-                                </span>
+
+                                <div class="names" :class="element.type==='' ? 'notDeleted' : 'deleted' ">
+                                    <img :src="element.avatar" alt="">
+                                    <div>
+                                       <span class="name">
+                                           {{element.name}}
+                                       </span>
+                                       <br>
+                                       <span class="secondspan">
+                                           Ultimo messaggio inviato
+                                       </span>
+                                   </div>
+                                   <span class="oclock">
+                                       12:00
+                                   </span>
+                                </div>
     
                             </div>
     
@@ -130,7 +136,7 @@
                                             Info message: <br>
                                             {{element.date}}
                                         </div>
-                                        <div class="delete-message" @click=" deleteMessage(index)">
+                                        <div class="delete-message">
                                             Delete message
                                         </div>
                                     </div>  
@@ -148,7 +154,7 @@
                             </div>
                             
                             <div class="typespace-right-two">
-                                <input type="text" placeholder="   Scrivi un messaggio" v-model="myNewMessage.message" @keyup.enter="addMyNewMessage(index)" @keyup.enter = " myInterlocutorAnswer('ok')">
+                                <input type="text" placeholder="   Scrivi un messaggio" v-model="myNewMessage.message" @keyup.enter="addMyNewMessage(index)">
                             </div>
                             
                             <div class="typespace-right-tree">
